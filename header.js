@@ -1,5 +1,5 @@
 function getCartItems() {
-    db.collection("items").onSnapshot((snapshot) => {
+    db.collection("cart-items").onSnapshot((snapshot) => {
         let totalCount = 0;
         snapshot.docs.forEach((doc) => {
             totalCount += doc.data().quantity;

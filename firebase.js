@@ -1,7 +1,3 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.4/firebase-analytics.js";
-import { firestore } from 'https://www.gstatic.com/firebasejs/9.6.4/firebase-firestore.js'
-
 const firebaseConfig = {
     apiKey: "AIzaSyC9wqzAGUMhy_O2XL3pHpXjgKUuMPfTAVA",
     authDomain: "amz-clone-4eda4.firebaseapp.com",
@@ -12,7 +8,7 @@ const firebaseConfig = {
     measurementId: "G-413S1GY27H"
 };
 
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
-let db = firestore()
+let db = firebase.firestore();

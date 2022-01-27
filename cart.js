@@ -1,5 +1,5 @@
 function getCartItems() {
-    db.collection("items").onSnapshot((snapshot) => {
+    db.collection("cart-items").onSnapshot((snapshot) => {
         let cartItems = [];
         snapshot.docs.forEach((doc) => {
             cartItems.push({
@@ -21,7 +21,7 @@ function getTotalCost(items) {
 }
 
 function decreaseCount(itemId) {
-    let cartItem = db.collection("items").doc(itemId);
+    let cartItem = db.collection("cart-items").doc(itemId);
     cartItem.get().then(function (doc) {
         if (doc.exists) {
             if (doc.data().quantity > 1) {
@@ -34,7 +34,7 @@ function decreaseCount(itemId) {
 }
 
 function increaseCount(itemId) {
-    let cartItem = db.collection("items").doc(itemId);
+    let cartItem = db.collection("cart-items").doc(itemId);
     cartItem.get().then(function (doc) {
         if (doc.exists) {
             if (doc.data().quantity > 0) {
@@ -47,7 +47,7 @@ function increaseCount(itemId) {
 }
 
 function deleteItem(itemId) {
-    db.collection("items").doc(itemId).delete();
+    db.collection("cart-items").doc(itemId).delete();
 }
 
 function generateCartItems(cartItems) {
