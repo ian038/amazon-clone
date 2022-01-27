@@ -12,10 +12,10 @@ async function getItems() {
                 price: doc.data().price
             })
         });
+        generateItems(items)
     } catch (error) {
         console.log('Get items error: ', error)
     }
-    generateItems(items)
 }
 
 async function addToCart(item) {
